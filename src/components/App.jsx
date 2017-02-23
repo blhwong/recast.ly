@@ -12,7 +12,7 @@ class App extends React.Component {
 
   render() {
     debugger;
-    this.setState({data: 'test'});
+    // this.setState({data: 'test'});
     return (
       <div>
         <Nav />
@@ -20,7 +20,7 @@ class App extends React.Component {
           <VideoPlayer video={this.state.data}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={window.exampleVideoData} onUpdate={this.onUpdate}/>
+          <VideoList videos={window.exampleVideoData} onUpdate={this.onUpdate.bind(this)}/>
         </div>
       </div>
 
