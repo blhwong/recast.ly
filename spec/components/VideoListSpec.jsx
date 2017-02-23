@@ -6,8 +6,8 @@ describe('VideoList', function() {
   // only a single level deep. This isolates the component from it's children
   // See more: https://facebook.github.io/react/docs/test-utils.html#shallow-rendering
 
-  it('should be a stateless functional component', function() {
-    expect(React.Component.isPrototypeOf(VideoList)).to.be.false;
+  it('should be a dynamic functional component', function() {
+    expect(React.Component.isPrototypeOf(VideoList)).to.be.true;
   });
 
   it('should render one `VideoListEntry` when given one video', function() {

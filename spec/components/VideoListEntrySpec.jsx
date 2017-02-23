@@ -31,8 +31,8 @@ describe('VideoListEntry', function() {
     );
   });
 
-  it('should be a stateless functional component', function() {
-    expect(React.Component.isPrototypeOf(VideoListEntry)).to.be.false;
+  it('should be a dynmaic functional component', function() {
+    expect(React.Component.isPrototypeOf(VideoListEntry)).to.be.true;
   });
 
   it('should dynamically render a video\'s image', function() {

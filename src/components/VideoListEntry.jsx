@@ -2,16 +2,23 @@ class VideoListEntry extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  update(event) {
+    debugger;
+    console.log('click');
+    console.log(event);
+    console.log(this);
+    this.props.onUpdate(this.props.video);
+  }
   render() {
+    var dataSnippet = this.props.video.snippet;
     return (
       <div className="video-list-entry">
         <div className="media-left media-middle">
-          <img className="media-object" src="https://i.ytimg.com/vi/4ZAEBxGipoA/default.jpg" alt="" />
+          <img className="media-object" src={dataSnippet.thumbnails.default.url} alt="" />
         </div>
         <div className="media-body">
-          <div className="video-list-entry-title">Video Title</div>
-          <div className="video-list-entry-detail">Video Description</div>
+          <div className="video-list-entry-title" onClick ={this.update.bind(this)}>{dataSnippet.title}</div>
+          <div className="video-list-entry-detail">{dataSnippet.description}</div>
         </div>
       </div>
     );
