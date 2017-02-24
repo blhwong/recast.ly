@@ -20,7 +20,10 @@ class App extends React.Component {
       key: window.YOUTUBE_API_KEY,
       max: 5
     };
-    this.props.searchYouTube(options, (items) => this.setState({videoListData: items}) );
+    this.props.searchYouTube(options, (items) => {
+      this.onUpdate(items[0]);
+      this.setState({videoListData: items});
+    });
   }
 
   onUpdate (data) {
