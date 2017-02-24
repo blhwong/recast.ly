@@ -16,6 +16,13 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
+    debugger;
+    var options = {
+      query: 'puppies',
+      key: window.YOUTUBE_API_KEY,
+      max: 5
+    };
+    this.props.searchYouTube(options, (items) => this.setState({videoListData: items}) );
   }
 
   onUpdate (data) {

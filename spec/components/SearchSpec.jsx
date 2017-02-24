@@ -11,7 +11,6 @@ describe ('Search', function() {
   describe('when rendering live data from YouTube', function() {
     beforeEach(function() {
       searchYouTubeStub = sinon.stub();
-      console.log(searchYouTubeStub);
       searchYouTubeStub.onCall(0).yields(window.fakeVideoData);
       searchYouTubeStub.onCall(1).yields(window.moreFakeVideoData);
 
