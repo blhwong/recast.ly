@@ -16,13 +16,14 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    debugger;
-    var options = {
-      query: 'puppies',
-      key: window.YOUTUBE_API_KEY,
-      max: 5
-    };
-    this.props.searchYouTube(options, (items) => this.setState({videoListData: items}) );
+    // debugger;
+    // console.log('component mounting');
+    // var options = {
+    //   query: 'puppies',
+    //   key: window.YOUTUBE_API_KEY,
+    //   max: 5
+    // };
+    // this.props.searchYouTube(options, (items) => this.setState({videoListData: items}) );
   }
 
   onUpdate (data) {
@@ -37,7 +38,10 @@ class App extends React.Component {
       key: window.YOUTUBE_API_KEY,
       max: 5
     };
-    searchYouTube(options, (items) => { this.setState({videoListData: items}); });
+    this.props.searchYouTube(options, (items) => { this.setState({videoListData: items}); });
+    // _.debounce(function() {
+    //   searchYouTube(options, (items) => { this.setState({videoListData: items}); });
+    // }, 5000);
   }
 
           // <!--inside nav, listen for changes in state? -->
