@@ -1,26 +1,48 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(this.props);
     this.state = {
-      data: window.exampleVideoData[0]
+      data: {  
+        id: {
+          kind: '',
+          videoId: ''
+        },
+        snippet: {
+          title: ''
+        }
+      },
+      videoListData: []
     };
+  }
+  componentDidMount() {
   }
 
   onUpdate (data) {
     this.setState({data});
   }
 
+  onSearch (data) {
+    console.log(this.props);
+    //set the state of the videoList
+    var options = {
+      query: data,
+      key: window.YOUTUBE_API_KEY,
+      max: 5
+    };
+    searchYouTube(options, (items) => { this.setState({videoListData: items}); });
+  }
+
+          // <!--inside nav, listen for changes in state? -->
   render() {
-    debugger;
-    // this.setState({data: 'test'});
     return (
       <div>
-        <Nav />
+        <Nav onSearch={this.onSearch.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.data}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={window.exampleVideoData} onUpdate={this.onUpdate.bind(this)}/>
+          <VideoList videos={this.state.videoListData} onUpdate={this.onUpdate.bind(this)}/>
         </div>
       </div>
 
