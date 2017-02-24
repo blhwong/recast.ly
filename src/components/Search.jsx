@@ -1,9 +1,6 @@
 var Search = (props) => {
   var search = (event) => {
-    console.log(event.target.value);
     props.onSearch(event.target.value);
-    console.log('searching...');
-    // debugger;
   };
 
   return (

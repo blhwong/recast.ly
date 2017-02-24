@@ -1,7 +1,6 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props);
     this.state = {
       data: {  
         id: {
@@ -16,13 +15,6 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    // debugger;
-    // console.log('component mounting');
-    // var options = {
-    //   query: 'puppies',
-    //   key: window.YOUTUBE_API_KEY,
-    //   max: 5
-    // };
     // this.props.searchYouTube(options, (items) => this.setState({videoListData: items}) );
   }
 
@@ -31,20 +23,14 @@ class App extends React.Component {
   }
 
   onSearch (data) {
-    console.log(this.props);
-    //set the state of the videoList
     var options = {
       query: data,
       key: window.YOUTUBE_API_KEY,
       max: 5
     };
     this.props.searchYouTube(options, (items) => { this.setState({videoListData: items}); });
-    // _.debounce(function() {
-    //   searchYouTube(options, (items) => { this.setState({videoListData: items}); });
-    // }, 5000);
   }
 
-          // <!--inside nav, listen for changes in state? -->
   render() {
     return (
       <div>
